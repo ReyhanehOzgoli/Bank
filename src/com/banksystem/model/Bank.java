@@ -1,3 +1,5 @@
+package com.banksystem.model;
+
 import lombok.Getter;
 import lombok.Setter;
 
