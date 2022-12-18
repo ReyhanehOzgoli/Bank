@@ -1,6 +1,7 @@
 package com.banksystem.repository;
 
 import com.banksystem.JDBC.DBConnection;
+import com.banksystem.model.Customer;
 import com.banksystem.model.Transaction;
 
 import java.sql.Connection;
@@ -8,14 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TransactionRepository extends AbstractRepository implements CrudRepository {
+public class TransactionRepository extends AbstractRepository implements  CrudRepository<Transaction, String> {
 
     Statement myStmt;
     ResultSet rs;
 
 
     @Override
-    public void save(Transaction transaction){
+    public void save(Transaction transaction) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Connection con = DBConnection.getInstance();
         myStmt = con.createStatement();
         rs = null;
@@ -33,12 +34,14 @@ public class TransactionRepository extends AbstractRepository implements CrudRep
         System.out.println("Insert complete");
 
 
+
     }
 
     @Override
-    public Object find(Object o){
+    public Transaction find(String s) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         return null;
     }
+
 
     @Override
     public void findAll(){

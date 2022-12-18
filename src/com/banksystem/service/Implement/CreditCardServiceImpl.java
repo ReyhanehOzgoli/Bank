@@ -1,12 +1,10 @@
 package com.banksystem.service.Implement;
 
-import com.banksystem.model.Account;
 import com.banksystem.model.CreditCard;
 import com.banksystem.repository.CreditCardRepository;
 import com.banksystem.service.CreditCardService;
 
 import java.sql.SQLException;
-import java.util.Random;
 
 public class CreditCardServiceImpl implements CreditCardService {
 
@@ -53,6 +51,13 @@ public class CreditCardServiceImpl implements CreditCardService {
     @Override
     public CreditCard findCreditCard() {
         return null;
+
+    }
+
+    @Override
+    public String findAccountWithCardNumber(String cardNumber) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        return creditCardRepository.findAccountNumber(cardNumber);
+
 
     }
 }

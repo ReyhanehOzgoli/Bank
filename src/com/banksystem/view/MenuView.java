@@ -15,7 +15,8 @@ public class MenuView {
             System.out.println("1_Customer");
             System.out.println("2_Bank account");
             System.out.println("3-CreditCard");
-            System.out.println("4_exit");
+            System.out.println("4_anjam tarakonesh");
+            System.out.println("5_exit");
 
             int menuNumber = scn.nextInt();
 
@@ -35,9 +36,13 @@ public class MenuView {
                     System.out.println("you have a CreditCard");
                     break;
                 case 4:
+                    System.out.println("anjam tarakonesh");
+                    break;
+                case 5:
                     quite = true;
                     System.out.println("you are logging out");
                     break;
+
             }
         } while (!quite);
 

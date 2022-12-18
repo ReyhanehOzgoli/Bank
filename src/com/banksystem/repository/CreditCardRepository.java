@@ -37,6 +37,27 @@ public class CreditCardRepository extends AbstractRepository implements CrudRepo
         System.out.println("Insert complete");
     }
 
+    public String findAccountNumber(String cardNumber) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+        Connection con = DBConnection.getInstance();
+        myStmt = con.createStatement();
+        rs = null;
+        if (con == null){
+            System.out.println("Connection is null");
+        }
+
+        String sql = "SELECT accountNumber FROM Account INNER JOIN CreditCard ON" +
+               " Account.ID = CreditCard.id"+
+               " WHERE cardNumber =" + cardNumber;
+        System.out.println(sql);
+        myStmt.executeUpdate(sql);
+        System.out.println("Insert complete");
+
+        if (rs.next()) {
+            String accountNumber = rs.getString("accountNumber");
+
+            return accountNumber;
+        }return null;
+    }
     @Override
     public CreditCard find(String cardNumber) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         return null;
